@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBI Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #2c3e50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 80px;
+            box-sizing: border-box;
+        }
+        .login-container {
+            background: #34495e;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container img {
+            display: block;
+            margin: 0 auto 20px;
+            width: 80px;
+            height: auto;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background: #16a085;
+        }
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #34495e; 
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000; 
+        }
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+<script>
+    const validCredentials = {
+        'Society': 'Gingercat22',
+        'ryder_is_short': 'FBI_MichelleHarrison',
+        'anders_j': 'FBICOS12!23084',
+        'syxmonz': 'NCRPFBI!2009',
+        'NCRPOwnership': 'FBIOWNERSHIP09',
+        'Jake': 'HRT#EliteOps',
+        'Hayder.145': 'Tato.124'
+    };
+
+    const deletedAccounts = {
+        'test1': {
+            password: 'test',
+            reason: 'Account deleted due to violation of FBI policies and procedures.'
+        }
+    };
+
+    const webhookUrl = 'https://discord.com/api/webhooks/1322308209691721728/mqP4gQg-UU4axvirBe4Zd7xKiinS7rt6--JBraURKONUD0RFnf8qReoExQt98EyXm_sC';
+    const mentionUserId = '<@&1322157260734206057>';
+
+    async function handleLogin(event) {
+        event.preventDefault(); 
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (deletedAccounts[username]) {
+            if (deletedAccounts[username].password === password) {
+                console.log('Deleted account attempted to login');
+                
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        embeds: [{
+                            title: "Deleted Account attempted to login",
+                            description: `Deleted account **${username}** has attempted to login but was sent to deleted account page. Reason for deletion: **${deletedAccounts[username].reason}**.`,
+                            color: 16753920,
+                            timestamp: new Date().toISOString()
+                        }]
+                    })
+                });
+
+                window.location.href = `deleted-account.html?reason=${encodeURIComponent(deletedAccounts[username].reason)}`;
+                return; 
+            } else {
+                console.log('Invalid password for deleted account.');
+                document.getElementById('error-message').textContent = 'Invalid username or password.';
+                return;
+            }
+        }
+
+        if (validCredentials[username] === password) {
+            console.log('Login successful for valid account');
+
+            sessionStorage.setItem('isAuthenticated', 'true');
+            sessionStorage.setItem('currentUser', username);
+
+            await fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    embeds: [{
+                        title: "FBI Website Notification",
+                        description: `User **${username}** has logged in successfully.`,
+                        color: 3066993,
+                        timestamp: new Date().toISOString()
+                    }]
+                })
+            });
+
+            console.log(sessionStorage.getItem('isAuthenticated'));
+            console.log(sessionStorage.getItem('currentUser'));
+
+            window.location.href = 'staff-home.html';
+        } else {
+            console.log('Login failed for username:', username);
+            await fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    content: `${mentionUserId} Possible threat detected!`,
+                    embeds: [{
+                        title: "FBI Website Notification",
+                        description: `Failed login attempt with username: **${username}**. Possible threat detected.`,
+                        color: 15158332,
+                        timestamp: new Date().toISOString()
+                    }]
+                })
+            });
+
+            document.getElementById('error-message').textContent = 'Invalid username or password.';
+        }
+    }
+
+    async function logout() {
+        const currentUser = sessionStorage.getItem('currentUser') || 'Unknown User'; 
+
+        await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                embeds: [{
+                    title: "FBI Website Notification",
+                    description: `User **${currentUser}** has logged out.`,
+                    color: 16753920, 
+                    timestamp: new Date().toISOString() 
+                }]
+            })
+        });
+
+        sessionStorage.removeItem('isAuthenticated');
+        sessionStorage.removeItem('currentUser');
+
+        window.location.href = 'login.html';
+    }
+</script>
+</head>
+<header>
+    <div class="logo">Login Page</div>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+
+<div class="login-container">
+    <img src="../images/fbi logo.png" alt="FBI Logo">
+    <h2>FBI Login</h2>
+    <div id="error-message" class="error"></div>
+    <form onsubmit="handleLogin(event)">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+</div>
+
+</body>
+</html>

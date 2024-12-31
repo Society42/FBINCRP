@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBI Documents</title>
+    <script>
+        if (!sessionStorage.getItem('isAuthenticated')) {  
+            window.location.href = 'login.html';
+        }
+
+        async function handleLogout() {
+            const webhookUrl = 'https://discord.com/api/webhooks/1322308209691721728/mqP4gQg-UU4axvirBe4Zd7xKiinS7rt6--JBraURKONUD0RFnf8qReoExQt98EyXm_sC';
+            const currentUser = sessionStorage.getItem('currentUser') || 'Unknown User'; 
+
+            await fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    embeds: [{
+                        title: "FBI Website Notification",
+                        description: `User **${currentUser}** has logged out.`,
+                        color: 16753920,
+                        timestamp: new Date().toISOString()
+                    }]
+                })
+            });
+
+            sessionStorage.removeItem('isAuthenticated'); 
+            sessionStorage.removeItem('currentUser'); 
+
+            window.location.href = 'login.html';
+        }
+    </script>
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #2c3e50;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: #34495e;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: #1abc9c;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin: 10px 0;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .document {
+            margin-bottom: 30px;
+            background: #34495e;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .document:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .document h2 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #1abc9c;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 5px;
+        }
+
+        .document p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 10px 0;
+            color: #ecf0f1;
+        }
+
+        .document .credits {
+            margin-top: 20px;
+            padding: 15px;
+            background: #16a085;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        .document .credits strong {
+            margin-bottom: 10px;
+        }
+
+        .document ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .document ul li {
+            padding: 10px 0;
+        }
+
+        .document ul li a {
+            color: #1abc9c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .document ul li a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #34495e;
+            color: white;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">FBI Staff Portal</div>
+        <ul>
+            <li><a href="documents.html">Documents</a></li>
+            <li><a href="10-code.html">10-Codes</a></li>
+            <li><a href="miranda-rights.html">Miranda Rights</a></li>
+            <li><a href="javascript:void(0);" onclick="handleLogout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>FBI Documents</h1>
+        <p>Access important resources below.</p>
+    </header>
+
+    <div class="container">
+        <div class="document">
+            <h2>Employee Handbook</h2>
+            <p><strong>Description:</strong> This handbook provides a detailed overview of the policies and procedures at the FBI. It covers all aspects of employment, ensuring that employees understand their roles and responsibilities within the agency.</p>
+            <div class="credits">
+                <strong>Credits:</strong>
+                <p><strong>Created by:</strong> ryder_is_short (Michelle Harrison)</p>
+                <p><strong>Approved by:</strong> Society (Malik Campbell)</p>
+            </div>
+            <ul>
+                <li><a href="documents/handbook.html">View Document</a></li>
+            </ul>
+        </div>
+
+        <div class="document">
+            <h2>Behaviour Policy</h2>
+            <p><strong>Description:</strong> This behavior policy outlines the standards of conduct expected from all FBI personnel. It provides clear guidelines on professionalism, prohibited actions, and disciplinary measures to maintain integrity, respect, and accountability within the agency.</p>
+            <div class="credits">
+                <strong>Credits:</strong>
+                <p><strong>Created by:</strong> ryder_is_short (Michelle Harrison)</p>
+                <p><strong>Approved by:</strong> Society (Malik Campbell)</p>
+            </div>
+            <ul>
+                <li><a href="documents/behaviour-policy.html">View Document</a></li>
+            </ul>
+        </div>
+
+        <div class="document">
+            <h2>Roster</h2>
+            <p><strong>Description:</strong> This roster serves as a detailed listing of all active FBI agents, including their ranks, divisions, and sub divisions. It provides an organized overview of personnel to ensure proper allocation of resources, effective coordination, and seamless communication during field operations.</p>            <div class="credits">
+                <strong>Credits:</strong>
+                <p><strong>Created by:</strong> Society (Malik Campbell)</p>
+                <p><strong>Approved by:</strong> Society (Malik Campbell)</p>
+            </div>
+            <ul>
+                <li><a href="./documents/roster.html">View Document</a></li>
+            </ul>
+        </div>
+
+        <div class="document">
+            <h2>Main Training Guide</h2>
+            <p><strong>Description:</strong> This comprehensive guide provides all the essential training materials for FBI agents. It includes instructions on protocols, field operations, and safety measures that agents need to follow in the field.</p>
+            <div class="credits">
+                <strong>Credits:</strong>
+                <p><strong>Created by:</strong> ryder_is_short (Michelle Harrison)</p>
+                <p><strong>Approved by:</strong> Society (Malik Campbell)</p>
+            </div>
+            <ul>
+                <li><a href="#">View Document</a></li>
+            </ul>
+        </div>
+
+        <div class="document">
+            <h2>Entry Application</h2>
+            <p><strong>Description:</strong> The Entry Application form is designed for those interested in joining the FBI. It includes a series of questions about the applicant's qualifications, background, and interest in becoming an agent.</p>
+            <div class="credits">
+                <strong>Credits:</strong>
+                <p><strong>Created by:</strong> ryder_is_short (Michelle Harrison)</p>
+                <p><strong>Approved by:</strong> Society (Malik Campbell)</p>
+            </div>
+            <ul>
+                <li><a href="https://forms.gle/rt63cSQRQTCD5TMz8" target="_blank">Apply Now</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Nova Designs. All rights reserved. Unauthorized access is strictly prohibited.</p>
+    </footer>
+
+</body>
+</html>
