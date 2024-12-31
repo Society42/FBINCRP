@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBI Staff Control Panel</title>
+    <script>
+        if (!sessionStorage.getItem('isAuthenticated')) {
+            window.location.href = 'login.html';
+        }
+
+        async function handleLogout() {
+            const webhookUrl = 'https://discord.com/api/webhooks/1322308209691721728/mqP4gQg-UU4axvirBe4Zd7xKiinS7rt6--JBraURKONUD0RFnf8qReoExQt98EyXm_sC';
+            const currentUser = sessionStorage.getItem('currentUser') || 'Unknown User'; 
+
+            await fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    embeds: [{
+                        title: "FBI Website Notification",
+                        description: `User **${currentUser}** has logged out.`,
+                        color: 16753920,
+                        timestamp: new Date().toISOString()
+                    }]
+                })
+            });
+
+            sessionStorage.removeItem('isAuthenticated');
+            sessionStorage.removeItem('currentUser'); 
+
+            window.location.href = 'login.html';
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #2c3e50;
+            color: white;
+        }
+        nav {
+            background: #34495e;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: #1abc9c;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0;
+        }
+        .container {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 80vh;
+        }
+        .control-panel {
+            background: #34495e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 60%;
+            text-align: center;
+        }
+        .control-panel h2 {
+            margin-bottom: 30px;
+            color: #1abc9c;
+        }
+        .control-panel a {
+            display: block;
+            background-color: #1abc9c;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .control-panel a:hover {
+            background-color: #16a085;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #34495e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">FBI Staff Portal</div>
+        <ul>
+            <li><a href="javascript:void(0);" onclick="handleLogout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>FBI Staff Home</h1>
+        <p>Access critical resources and documents below.</p>
+    </header>
+
+    <div class="container">
+        <div class="control-panel">
+            <h2>Select an Option</h2>
+            <a href="documents.html">Documents</a>
+            <a href="10-code.html">10-Codes</a>
+            <a href="miranda-rights.html">Miranda Rights</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Nova Designs. All rights reserved. Unauthorized access is strictly prohibited.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,171 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c3e50; 
+    color: white;
+}
+
+header {
+    background-color: #34495e; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+.division {
+    background-color: #34495e;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.division h2 {
+    margin-top: 0;
+}
+
+.subdivision {
+    background-color: #1abc9c;  
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.subdivision h3 {
+    margin-top: 0;
+}
+
+.notices {
+    background-color: #34495e;  
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.notices h2 {
+    margin-top: 0;
+}
+
+.notices ul {
+    list-style: none;
+    padding: 0;
+}
+
+.notices ul li {
+    margin-bottom: 15px;
+}
+
+.contact {
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.contact h2 {
+    margin-top: 0;
+}
+
+.contact p {
+    font-size: 1.1em;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    margin-bottom: 10px;
+}
+
+.contact-list a {
+    color: #1abc9c;  
+    text-decoration: none;
+}
+
+.contact-list a:hover {
+    text-decoration: underline;
+}
+
+.contact-list ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.contact-list ul li {
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+}
+
+.about-section {
+    background: #34495e;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+.about-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.about-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+.about-section img {
+    display: block;
+    margin: 0 auto 20px;
+    width: 100px;
+    height: auto;
+}
