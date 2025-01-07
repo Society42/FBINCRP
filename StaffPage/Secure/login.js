@@ -12,6 +12,35 @@ const validCredentials = {
             password: 'Tato.124',
             reason: 'Account deleted due to retiring from FBI.'
         }
+                'Society': {
+            password: 'Gingercat22',
+            reason: 'Due to a system-wide security compromise affecting all user accounts, your account has been deleted to maintain data integrity and security..'
+        }
+
+                'ryder_is_short': {
+            password: 'FBI_MichelleHarrison',
+            reason: 'Due to a system-wide security compromise affecting all user accounts, your account has been deleted to maintain data integrity and security..'
+        }
+
+                'anders_j': {
+            password: 'FBICOS12!23084',
+            reason: 'Due to a system-wide security compromise affecting all user accounts, your account has been deleted to maintain data integrity and security..'
+        }
+
+                'syxmonz': {
+            password: 'NCRPFBI!2009',
+            reason: 'Due to a system-wide security compromise affecting all user accounts, your account has been deleted to maintain data integrity and security..'
+        }
+
+                'NCRPOwnership': {
+            password: 'FBIOWNERSHIP09',
+            reason: 'Due to a system-wide security compromise affecting all user accounts, your account has been deleted to maintain data integrity and security..'
+        }
+
+                'Jake': {
+            password: 'HRT#EliteOps',
+            reason: 'Due to a system-wide security compromise affecting all user accounts, your account has been deleted to maintain data integrity and security..'
+        }
     };
 
     const webhookUrl = 'https://discord.com/api/webhooks/1322308209691721728/mqP4gQg-UU4axvirBe4Zd7xKiinS7rt6--JBraURKONUD0RFnf8qReoExQt98EyXm_sC';
