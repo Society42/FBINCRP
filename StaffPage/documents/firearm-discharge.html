@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firearms Discharge Log</title>
+    <link rel="stylesheet" href="../../styles/firearm-discharge.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1 class="logo">FBI NCRP Staff Portal</h1>
+            <nav>
+                <ul>
+                    <li><a href="../documents.html">Documents</a></li>
+                    <li><a href="../10-code.html">10-Codes</a></li>
+                    <li><a href="../miranda-rights.html">Miranda Rights</a></li>
+                    <li><a href="javascript:void(0);" onclick="handleLogout()">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <p id="error-message" class="error-message">Text selection is disabled to protect the confidentiality of these documents. Unauthorized copying is prohibited.</p>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <form id="firearms-discharge-form">
+                    <label for="date-time">Date and Time of Discharge:</label>
+                    <input type="datetime-local" id="date-time" name="date-time" required>
+
+                    <label for="location">Location of Discharge:</label>
+                    <input type="text" id="location" name="location" required>
+
+                    <label for="firearm-type">Type of Firearm Discharged:</label>
+                    <select id="firearm-type" name="firearm-type" required>
+                        <option value="handgun">Handgun</option>
+                        <option value="shotgun">Shotgun</option>
+                        <option value="rifle">Rifle</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="incident-description">Description of Incident:</label>
+                    <textarea id="incident-description" name="incident-description" rows="4" required></textarea>
+
+                    <label for="officers-involved">Officers Involved:</label>
+                    <textarea id="officers-involved" name="officers-involved" rows="4" required></textarea>
+
+                    <label for="targets">Targets or Persons Involved (if any):</label>
+                    <textarea id="targets" name="targets" rows="4"></textarea>
+
+                    <label for="witnesses">Witnesses (if any):</label>
+                    <textarea id="witnesses" name="witnesses" rows="4"></textarea>
+
+                    <label for="actions-taken">Actions Taken:</label>
+                    <textarea id="actions-taken" name="actions-taken" rows="4" required></textarea>
+
+                    <input type="submit" value="Submit Log">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 FBI NCRP. All rights reserved. Unauthorized access is strictly prohibited.</p>
+    </footer>
+
+    <script src="../Secure/firearm-discharge.js"></script>
+</body>
+</html>

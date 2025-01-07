@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBI Login</title>
+    <link rel="stylesheet" href="../styles/login.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <div class="logo">FBI Login</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="login-container">
+    <img src="../images/fbi logo.png" alt="FBI Logo">
+    <h2>FBI Login</h2>
+    <div id="error-message" class="error"></div>
+    <form onsubmit="handleLogin(event)">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <a href="javascript:void(0)" class="forgot-password-link" onclick="openForgotPassword()">Forgot Password?</a>
+</div>
+
+<div class="popup" id="forgotPasswordPopup">
+    <div class="popup-content">
+        <h3>Forgot Password</h3>
+        <input type="text" id="forgotUsername" placeholder="Enter your username">
+        <button onclick="handleForgotPassword()">Submit</button>
+        <button class="popup-close" onclick="closeForgotPassword()">Close</button>
+    </div>
+</div>
+
+<script src="./Secure/login.js"></script>
+</body>
+</html>

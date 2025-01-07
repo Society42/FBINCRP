@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.header {
+    background: #00274D;
+    color: white;
+    padding: 10px 20px;
+}
+
+.header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header .nav-links {
+    list-style: none;
+}
+
+.header .nav-links li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.header .nav-links a {
+    color: white;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #00274D;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 0.9rem;
+    border-top: 3px solid #0059B3;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.about-section, .divisions-section {
+    margin-bottom: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.about-section h2, .divisions-section h2 {
+    margin-bottom: 10px;
+    color: #00274D;
+}
+
+.division-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.division-card {
+    flex: 1;
+    min-width: 200px;
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.division-card h3 {
+    margin-bottom: 10px;
+    color: #0056b3;
+}
