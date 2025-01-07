@@ -1,10 +1,5 @@
 const validCredentials = {
-    'Society': { password: 'Gingercat22', profilePicture: 'path_to_profile_picture_1.jpg' },
-    'ryder_is_short': { password: 'FBI_MichelleHarrison', profilePicture: 'path_to_profile_picture_2.jpg' },
-    'anders_j': { password: 'FBICOS12!23084', profilePicture: 'path_to_profile_picture_3.jpg' },
-    'syxmonz': { password: 'NCRPFBI!2009', profilePicture: 'path_to_profile_picture_4.jpg' },
-    'NCRPOwnership': { password: 'FBIOWNERSHIP09', profilePicture: 'path_to_profile_picture_5.jpg' },
-    'Jake': { password: 'HRT#EliteOps', profilePicture: 'path_to_profile_picture_6.jpg' },
+    '56464564564ytrdg4reygf456': { password: '12312421453253254364564', profilePicture: '' },
 };
 
     const deletedAccounts = {
