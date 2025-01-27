@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCRP Forum</title>
+    <script>
+        async function checkAuthentication() {
+            try {
+                const response = await fetch("https://ncrpfbi.com/auth/verify", {
+                    credentials: "include",
+                });
+
+                if (!response.ok) throw new Error("Failed to verify");
+
+                const data = await response.json();
+
+                if (!data.loggedIn) {
+                    window.location.href = "discord_login.html";
+                } else {
+                    document.getElementById("welcome").innerText = `Welcome, ${data.user.username}`;
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                window.location.href = "discord_login.html";
+            }
+        }
+
+        window.onload = checkAuthentication;
+    </script>
+</head>
+
+<body>
+    <h1 id="welcome">Loading...</h1>
+    <p>Welcome to the NCRP Forum!</p>
+</body>
+
+</html>
