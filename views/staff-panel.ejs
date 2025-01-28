@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Panel</title>
+    <link rel="stylesheet" href="/staff-panel.css">
+</head>
+<body>
+    <div id="obenlinks">
+        <div><img id="logo" src="/img/logo.png" alt="Logo"></div>
+        <div id="logotext">Raleigh<span id="logotext2">Roleplay</span></div>
+    </div>
+    <div id="strich1"></div>
+
+    <div id="nav">
+        <div><a href="/" id="home">HOME</a></div>
+        <div id="homestrich"></div>
+        <div><a href="/login" id="forum">FORUM</a></div>
+        <div><a href="https://ncrp5m.tebex.io/" target="_blank" id="shop">SHOP</a></div>
+        <div><a href="https://discord.gg/gUDr28uf6e" target="_blank" id="dc">DISCORD</a></div>
+    </div>
+
+    <div class="filters">
+        <button id="pendingButton" onclick="window.location.href='/staff-panel?status=pending'">Pending</button>
+        <button id="acceptedButton" onclick="window.location.href='/staff-panel?status=accepted'">Accepted</button>
+        <button id="deniedButton" onclick="window.location.href='/staff-panel?status=denied'">Denied</button>
+    </div>
+
+    <div id="applicationsList">
+        <table>
+            <thead>
+              <tr>
+                <th>Applicant Username</th> 
+                <th>Status</th>
+                <th>Reviewer</th>
+                <th>Reviewed At</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% applications.forEach(application => { %>
+                <tr>
+                  <td><%= application.applicantUsername %></td> 
+                  <td><%= application.status %></td>
+                  <td><%= application.reviewerUsername || 'Not Reviewed Yet' %></td>
+                  <td><%= application.reviewedAtFormatted %></td>
+                  <td>
+                    <form action="/update-application/<%= application._id %>" method="POST">
+                        <button type="submit" name="status" value="accepted">Accept</button>
+                        <button type="submit" name="status" value="denied">Deny</button>
+                        <button type="submit" name="status" value="pending">Set to Pending</button>
+                    </form>
+                    <button onclick="showApplicationDetails('<%= application._id %>')" id="button">View Application</button>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+    
+          </table>          
+    </div>
+
+    <div id="copyright">Copyright © by Raleigh Roleplay</div>
+
+    <div id="applicationPopup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <h2>Application Details</h2>
+            <div id="applicationDetails">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showApplicationDetails(applicationId) {
+            fetch(`/view-application/${applicationId}`)
+                .then(response => response.text()) 
+                .then(data => {
+                    document.getElementById('applicationDetails').innerHTML = data;
+                    document.getElementById('applicationPopup').style.display = 'flex';
+                })
+                .catch(error => {
+                    console.error('Error fetching application details:', error);
+                });
+        }
+
+        document.getElementById('closePopup').onclick = function() {
+            document.getElementById('applicationPopup').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('applicationPopup')) {
+                document.getElementById('applicationPopup').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
