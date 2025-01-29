@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRP - Staff Application</title>
+  <link rel="stylesheet" href="./application.css">
+  <link rel="icon" type="image/x-icon" href="/img/logo.png">
+  <link href="https://fonts.cdnfonts.com/css/akrobat" rel="stylesheet">
+</head>
+<body>
+  <div id="obenlinks">
+    <div><img id="logo" src="/img/logo.png" alt="Logo"></div>
+    <div id="logotext">Raleigh<span id="logotext2">Roleplay</span></div>
+</div>
+<div id="strich1"></div>
+
+<div id="nav">
+    <a href="/" id="home">HOME</a>
+    <div id="homestrich"></div>
+    <a href="/forum" id="forum">FORUM</a>
+    <a href="/development-board" id="development">DEVELOPMENT</a>
+    <a href="/coming-soon" id="shop">SHOP</a>
+    <a href="https://discord.gg/gUDr28uf6e" target="_blank" id="dc">DISCORD</a>
+</div>
+
+  <div class="container">
+    <form action="/submit-application" method="POST" class="application-form">
+      <div class="main-content">
+        <h1>Staff Application</h1>
+        <label for="age">What is your age?</label>
+        <input type="number" name="age" id="age" required>
+
+        <label for="question1">What time zone are you in, and how active can you be weekly?</label>
+        <input name="question1" id="question1" required>
+
+        <label for="question2">Do you have any prior staff experience in other FiveM servers or similar communities?</label>
+        <input name="question2" id="question2" required>
+
+        <label for="question3">What is RDM?</label>
+        <input name="question3" id="question3" required>
+
+        <label for="question4">What is VDM?</label>
+        <input name="question4" id="question4" required>
+
+        <label for="question5">What is FRP?</label>
+        <input name="question5" id="question5" required>
+
+        <label for="question6">What is meta gaming?</label>
+        <input name="question6" id="question6" required>
+
+        <label for="question7">How would you handle a player who is clearly breaking the rules but denies it when confronted?</label>
+        <input name="question7" id="question7" required>
+
+        <label for="question8">If two players are arguing in chat and it's escalating, how would you intervene?</label>
+        <input name="question8" id="question8" required>
+
+        <label for="question9">A player reports someone for using a mod menu. What steps would you take to confirm it?</label>
+        <input name="question9" id="question9" required>
+
+        <label for="question10">A popular streamer joins the server and is griefed by other players. How would you handle the situation quickly and professionally?</label>
+        <input name="question10" id="question10" required>
+
+        <label for="question11">What would you do if you discovered another staff member abusing their powers?</label>
+        <input name="question11" id="question11" required>
+
+        <label for="question12">What do you think makes a good staff member?</label>
+        <input name="question12" id="question12" required>
+
+        <label for="question13">How would you contribute to maintaining a fun, fair, and welcoming community?</label>
+        <input name="question13" id="question13" required>
+
+        <label for="question14">Why do you want to become a staff member?</label>
+        <input name="question14" id="question14" required>
+
+        <label for="question15">What strengths are your stengths and weaknesses?</label>
+        <input name="question15" id="question15" required>
+
+        <button type="submit" id="play">Submit Application</button>
+      </div>
+    </form>
+  </div>
+
+  <p><a href="/forum">Back to Forum</a></p>
+  <div id="copyright">Copyright © by Raleigh Roleplay</div>
+</body>
+</html>
