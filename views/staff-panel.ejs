@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RRP - Staff Panel</title>
+    <link rel="stylesheet" href="/staff-panel.css">
+    <link rel="icon" type="image/x-icon" href="/img/logo.png">
+    <link href="https://fonts.cdnfonts.com/css/akrobat" rel="stylesheet">
+</head>
+<body>
+    <div id="obenlinks">
+        <div><img id="logo" src="/img/logo.png" alt="Logo"></div>
+        <div id="logotext">Raleigh<span id="logotext2">Roleplay</span></div>
+    </div>
+    <div id="strich1"></div>
+    
+    <div id="nav">
+        <a href="/" id="home">HOME</a>
+        <div id="homestrich"></div>
+        <a href="/forum" id="forum">FORUM</a>
+        <a href="/development-board" id="development">DEVELOPMENT</a>
+        <a href="/coming-soon" id="shop">SHOP</a>
+        <a href="https://discord.gg/gUDr28uf6e" target="_blank" id="dc">DISCORD</a>
+    </div>
+    
+    <div class="container">
+        <h1>Staff Panel</h1>
+        <p>Welcome, <strong><%= user.username %></strong>! Choose an option below:</p>
+
+        <div class="panel-links">
+            <a href="/development-panel" class="btn">Development Panel</a>
+            <a href="/application-panel" class="btn">Application Panel</a>
+        </div>
+
+        <a href="/" class="back-btn">Return to Home</a>
+    </div>
+</body>
+</html>
