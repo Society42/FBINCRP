@@ -40,11 +40,22 @@ const Task = mongoose.model('Task', taskSchema);
 module.exports = Task;
 
 const applicationSchema = new mongoose.Schema({
-  name: String,
   age: Number,
-  experience: String,
-  skills: String,
-  activity: String,
+  question1: String,
+  question2: String,
+  question3: String,
+  question4: String,
+  question5: String,
+  question6: String,
+  question7: String,
+  question8: String,
+  question9: String,
+  question10: String,
+  question11: String,
+  question12: String,
+  question13: String,
+  question14: String,
+  question15: String,
   status: { type: String, default: "pending" },
   userId: { type: String, required: true },
 });
@@ -57,16 +68,27 @@ const userApplicationSchema = new mongoose.Schema({
   applications: [
     {
       _id: mongoose.Schema.Types.ObjectId,
-      name: String,
       age: Number,
-      experience: String,
-      skills: String,
-      activity: String,
+      question1: String,
+      question2: String,
+      question3: String,
+      question4: String,
+      question5: String,
+      question6: String,
+      question7: String,
+      question8: String,
+      question9: String,
+      question10: String,
+      question11: String,
+      question12: String,
+      question13: String,
+      question14: String,
+      question15: String,
       status: { type: String, default: "pending" },
       submittedAt: { type: Date, default: Date.now },
       reviewer: { type: String, default: null },  
       reviewedAt: { type: Date, default: null },
-      applicantUsername: { type: String, default: 'Unknown' }, 
+      applicantUsername: { type: String, required: true, default: 'Unknown' }, 
     },
   ],
 });
@@ -168,22 +190,22 @@ app.get("/application-panel", isAuthenticated, async (req, res) => {
 
     for (const application of applications) {
       const userApplication = await UserApplication.findOne({ userId: application.userId });
-
+    
       if (userApplication) {
         const app = userApplication.applications.id(application._id);
         if (app) {
-          application.applicantUsername = app.applicantUsername || 'Unknown';
+          application.applicantUsername = app.applicantUsername || 'Unknown'; // Ensure applicantUsername is set
           application.reviewerUsername = app.reviewer ? app.reviewer : 'Unknown';
           application.reviewedAtFormatted = app.reviewedAt ? app.reviewedAt.toLocaleString() : 'N/A';
         } else {
-          application.applicantUsername = 'Unknown';
+          application.applicantUsername = 'Unknown'; // Fallback if application not found
         }
       } else {
-        application.applicantUsername = 'Unknown';
+        application.applicantUsername = 'Unknown'; // Fallback if userApplication not found
         application.reviewerUsername = 'Unknown';
         application.reviewedAtFormatted = 'N/A';
       }
-    }
+    }    
 
     res.render("application-panel", { applications });
   } catch (err) {
@@ -273,7 +295,7 @@ app.get("/staff-application", isAuthenticated, (req, res) => {
 });
 
 app.post("/submit-application", isAuthenticated, async (req, res) => {
-  const { name, age, experience, skills, activity } = req.body;
+  const { age, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15 } = req.body;
   const userId = req.user.id;
   const applicantUsername = req.user.username; 
 
@@ -291,12 +313,23 @@ app.post("/submit-application", isAuthenticated, async (req, res) => {
     }
 
     const newApplication = new Application({
-      name,
       age,
-      experience,
-      skills,
-      activity,
-      userId,
+      question1,
+      question2,
+      question3,
+      question4,
+      question5,
+      question6,
+      question7,
+      question8,
+      question9,
+      question10,
+      question11,
+      question12,
+      question13,
+      question14,
+      question15,
+      userId, 
     });
 
     const savedApplication = await newApplication.save();
@@ -325,6 +358,25 @@ app.post("/submit-application", isAuthenticated, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send("Error submitting application.");
+  }
+});
+
+app.post('/close-application/:id', async (req, res) => {
+  try {
+      const applicationId = req.params.id;
+      
+      const application = await Application.findByIdAndUpdate(applicationId, {
+          status: 'Closed'
+      }, { new: true });
+
+      if (!application) {
+          return res.status(404).send('Application not found');
+      }
+
+      res.redirect('/application-panel');
+  } catch (err) {
+      console.error('Error closing application:', err);
+      res.status(500).send('Server error');
   }
 });
 
@@ -474,12 +526,22 @@ app.get("/view-application/:id", isAuthenticated, async (req, res) => {
 
     res.send(`
       <div>
-        <p><strong>Name:</strong> ${application.name}</p>
-        <p><strong>Age:</strong> ${application.age}</p>
-        <p><strong>Experience:</strong> ${application.experience}</p>
-        <p><strong>Skills:</strong> ${application.skills}</p>
-        <p><strong>Activity:</strong> ${application.activity}</p>
-        <p><strong>Discord Username:</strong> ${applicantUsername}</p>
+        <p><strong>What is your age?</strong> ${application.age}</p>
+        <p><strong>What time zone are you in, and how active can you be weekly?</strong> ${application.question1}</p>
+        <p><strong>Do you have any prior staff experience in other FiveM servers or similar communities?</strong> ${application.question2}</p>
+        <p><strong>What is RDM?</strong> ${application.question3}</p>
+        <p><strong>What is VDM?</strong> ${application.question4}</p>
+        <p><strong>What is FRP?</strong> ${application.question5}</p>
+        <p><strong>what is meta gaming?</strong> ${application.question6}</p>
+        <p><strong>How would you handle a player who is clearly breaking the rules but denies it when confronted?</strong> ${application.question7}</p>
+        <p><strong>If two players are arguing in chat and it's escalating, how would you intervene?</strong> ${application.question8}</p>
+        <p><strong>A player reports someone for using a mod menu. What steps would you take to confirm it?</strong> ${application.question9}</p>
+        <p><strong>A popular streamer joins the server and is griefed by other players. How would you handle the situation quickly and professionally?</strong> ${application.question10}</p>
+        <p><strong>What would you do if you discovered another staff member abusing their powers?</strong> ${application.question11}</p>
+        <p><strong>What do you think makes a good staff member?</strong> ${application.question12}</p>
+        <p><strong>How would you contribute to maintaining a fun, fair, and welcoming community?</strong> ${application.question13}</p>
+        <p><strong>Why do you want to become a staff member?</strong> ${application.question14}</p>
+        <p><strong>What strengths are your stengths and weaknesses?</strong> ${application.question15}</p>
         <p><strong>Status:</strong> ${application.status}</p>
       </div>
     `);
