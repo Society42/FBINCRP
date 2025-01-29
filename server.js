@@ -18,6 +18,27 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 });
 
+const taskSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  assignedTo: { type: String, required: true },
+  status: {
+      type: String,
+      enum: ['To-Do', 'In-Progress', 'Completed', 'Feedback'],
+      default: 'To-Do'
+  },
+  priority: {
+      type: String,
+      enum: ['Low', 'Medium', 'High'],
+      default: 'Medium'
+  },
+  createdBy: { type: String, required: true }  
+});
+
+const Task = mongoose.model('Task', taskSchema);
+
+module.exports = Task;
+
 const applicationSchema = new mongoose.Schema({
   name: String,
   age: Number,
@@ -111,6 +132,10 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.get("/coming-soon", (req, res) => {
+  res.render("coming-soon");
+});
+
 app.get("/auth/discord", passport.authenticate("discord"));
 
 app.get(
@@ -129,7 +154,7 @@ app.get(
   }
 );
 
-app.get("/staff-panel", isAuthenticated, async (req, res) => {
+app.get("/application-panel", isAuthenticated, async (req, res) => {
   if (!req.user || 
     (req.user.id !== "1065934093470158918" && 
     req.user.id !== "708001346816835624" && 
@@ -160,11 +185,22 @@ app.get("/staff-panel", isAuthenticated, async (req, res) => {
       }
     }
 
-    res.render("staff-panel", { applications });
+    res.render("application-panel", { applications });
   } catch (err) {
     console.error("Error fetching applications:", err);
     res.status(500).send("An error occurred while fetching applications.");
   }
+});
+
+app.get("/staff-panel", isAuthenticated, (req, res) => {
+  if (!req.user || 
+    (req.user.id !== "1065934093470158918" && 
+    req.user.id !== "708001346816835624" && 
+    req.user.id !== "928586046072029216")) {
+    return res.redirect("/access-denied"); 
+  }
+
+  res.render("staff-panel", { user: req.user });
 });
 
 app.post("/update-application/:id", isAuthenticated, async (req, res) => {
@@ -198,7 +234,7 @@ app.post("/update-application/:id", isAuthenticated, async (req, res) => {
       }
     }
 
-    res.redirect("/staff-panel");
+    res.redirect("/application-panel");
   } catch (err) {
     console.error("Error updating application:", err);
     res.status(500).send("An error occurred while updating the application.");
@@ -337,6 +373,87 @@ app.get("/staff-panel", isAuthenticated, async (req, res) => {
   }
 });
 
+app.get("/development-board", async (req, res) => {
+  try {
+    const tasks = await Task.find({});
+    
+    const tasksByStatus = {
+      Feedback: [],
+      "To-Do": [],
+      "In-Progress": [],
+      Completed: []
+    };
+
+    tasks.forEach(task => {
+      tasksByStatus[task.status].push(task);
+    });
+
+    res.render("development-board", { tasksByStatus });
+  } catch (err) {
+    console.error("Error fetching tasks:", err);
+    res.status(500).send("An error occurred while fetching tasks.");
+  }
+});
+
+app.get('/development-panel', isAuthenticated, async (req, res) => {
+  if (!req.user || 
+    (req.user.id !== "1065934093470158918" && 
+    req.user.id !== "708001346816835624" && 
+    req.user.id !== "928586046072029216")) {
+    return res.redirect("/access-denied"); 
+  }
+
+  try {
+      const statusFilter = req.query.status || '';
+      let tasks;
+      
+      if (statusFilter) {
+          tasks = await Task.find({ status: statusFilter });
+      } else {
+          tasks = await Task.find({});
+      }
+
+      res.render('development-panel', { tasks: tasks });
+  } catch (err) {
+      console.error("Error fetching tasks:", err);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+app.post('/create-task', async (req, res) => {
+  try {
+      const { title, description, assignedTo, status, priority } = req.body;
+
+      const task = new Task({
+          title: title,
+          description: description,
+          assignedTo: assignedTo,
+          status: status,
+          priority: priority,
+          createdBy: req.user.username  
+      });
+
+      await task.save();
+
+      res.redirect('/development-panel');
+  } catch (err) {
+      console.error("Error creating task:", err);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+app.post('/update-status', async (req, res) => {
+  const { taskId, newStatus } = req.body;
+
+  await Task.findByIdAndUpdate(taskId, { status: newStatus });
+  res.redirect('/development-panel');
+});
+
+app.get('/delete-task/:id', async (req, res) => {
+  const taskId = req.params.id;
+  await Task.findByIdAndDelete(taskId);
+  res.redirect('/development-panel');
+});
 
 app.get("/view-application/:id", isAuthenticated, async (req, res) => {
   try {
