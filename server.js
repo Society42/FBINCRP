@@ -39,6 +39,13 @@ const Task = mongoose.model('Task', taskSchema);
 
 module.exports = Task;
 
+const staffApplicationSchema = new mongoose.Schema({
+  status: { type: String, enum: ['open', 'closed'], default: 'closed' },
+});
+
+const StaffApplication = mongoose.model("StaffApplication", staffApplicationSchema);
+module.exports = StaffApplication;
+
 const applicationSchema = new mongoose.Schema({
   age: Number,
   question1: String,
@@ -158,6 +165,16 @@ app.get("/coming-soon", (req, res) => {
   res.render("coming-soon");
 });
 
+app.post('/open-application', async (req, res) => {
+  await StaffApplication.updateOne({}, { status: 'open' }); 
+  res.redirect('/application-panel');
+});
+
+app.post('/close-application', async (req, res) => {
+  await StaffApplication.updateOne({}, { status: 'closed' });
+  res.redirect('/application-panel');
+});
+
 app.get("/auth/discord", passport.authenticate("discord"));
 
 app.get(
@@ -194,14 +211,14 @@ app.get("/application-panel", isAuthenticated, async (req, res) => {
       if (userApplication) {
         const app = userApplication.applications.id(application._id);
         if (app) {
-          application.applicantUsername = app.applicantUsername || 'Unknown'; // Ensure applicantUsername is set
+          application.applicantUsername = app.applicantUsername || 'Unknown'; 
           application.reviewerUsername = app.reviewer ? app.reviewer : 'Unknown';
           application.reviewedAtFormatted = app.reviewedAt ? app.reviewedAt.toLocaleString() : 'N/A';
         } else {
-          application.applicantUsername = 'Unknown'; // Fallback if application not found
+          application.applicantUsername = 'Unknown'; 
         }
       } else {
-        application.applicantUsername = 'Unknown'; // Fallback if userApplication not found
+        application.applicantUsername = 'Unknown'; 
         application.reviewerUsername = 'Unknown';
         application.reviewedAtFormatted = 'N/A';
       }
@@ -278,12 +295,14 @@ app.get("/forum", isAuthenticated, async (req, res) => {
 
     console.log("Authenticated user:", req.user);
 
+    const staffAppStatus = await StaffApplication.findOne();
+
     const user = await UserApplication.findOne({ userId: req.user.id });
 
     const myApplications = user && user.applications ? user.applications : [];
     const username = req.user.username; 
 
-    res.render("forum", { myApplications, userId: req.user.id, username });
+    res.render("forum", { myApplications, userId: req.user.id, username, staffAppStatus });
   } catch (err) {
     console.error("Error fetching applications:", err);
     res.status(500).send("An error occurred while fetching applications.");
