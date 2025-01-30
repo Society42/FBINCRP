@@ -165,6 +165,18 @@ app.get("/coming-soon", (req, res) => {
   res.render("coming-soon");
 });
 
+app.get("/privacy-policy", (req, res) => {
+  res.render("privacy-policy");
+});
+
+app.get("/terms-of-service", (req, res) => {
+  res.render("terms-of-service");
+});
+
+app.get("/mobile-user", (req, res) => {
+  res.render("mobile-user");
+});
+
 app.post('/open-application', async (req, res) => {
   await StaffApplication.updateOne({}, { status: 'open' }); 
   res.redirect('/application-panel');
