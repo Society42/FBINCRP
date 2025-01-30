@@ -1,0 +1,400 @@
+html {
+    display: block;
+}
+
+body {
+    background-size: cover;
+    background-image: url(img/background.png);
+    overflow: hidden;
+}
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+#logotext {
+    position: absolute;
+    top: 50%;
+    font-family: 'Akrobat Bold', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5416666666666667vw;
+    line-height: 1.5625vw;
+    color: #0084FF;
+    top: 5.4%;
+    left: 9%;
+}
+
+#logotext2 {
+    position: absolute;
+    top: 80%;
+    left: 0%;
+    font-size: 1.254166666666666vw;
+    color: #FFFFFF;
+}
+
+#logo {
+    position: absolute;
+    width: 4.198062432723359vh;
+    height: 2.95625vw;
+    top: 5%;
+    left: 5%;
+}
+
+#strich1 {
+    position: absolute;
+    width: 206.67384284176535vh;
+    height: 0vw;
+    border: 0.052083333333333336vw solid rgba(53, 53, 53, 0.6);
+    left: 0%;
+    top: 15%;
+}
+
+#home {
+    position: absolute;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #FFFFFF;
+    left: 25%;
+    top: 7%;
+    text-decoration: none;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#homestrich {
+    position: absolute;
+    width: 2.3681377825618943vh;
+    height: 0.10416666666666667vw;
+    background: #0084FF;
+    box-shadow: 0wv 0wv 0.15625vw #6DB9FF;
+    top: 10%;
+    left: 25.5%;
+}
+
+#forum {
+    position: absolute;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #FFFFFF;
+    left: 40%;
+    top: 7%;
+    text-decoration: none;
+}
+
+#shop {
+    position: absolute;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #FFFFFF;
+    left: 70%;
+    top: 7%;
+    text-decoration: none;
+}
+
+#development {
+    position: absolute;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #FFFFFF;
+    left: 55%;
+    top: 7%;
+    text-decoration: none;
+}
+
+#shop:hover {
+    color: #0084FF;
+}
+
+#home:hover {
+    color: #0084FF;
+}
+
+#forum:hover {
+    color: #0084FF;
+}
+
+#development:hover {
+    color: #0084FF;
+}
+
+#dc:hover {
+    color: #0084FF;
+}
+
+#dc {
+    position: absolute;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #FFFFFF;
+    left: 85%;
+    top: 7%;
+    text-decoration: none;
+}
+
+#textbox {
+    position: absolute;
+    width: 43.05705059203444vh;
+    height: 26.041666666666668vw;
+    top: 30%;
+    left: 60%;
+}
+
+#brezelrp {
+    font-family: 'Apex Mk2';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.125vw;
+    line-height: 2.5vw;
+    color: #0084FF;
+}
+
+#brezelrpweiß {
+    color: #FFFFFF;
+}
+
+#serverinfo {
+    position: absolute;
+    top: 20%;
+    font-family: 'Akrobat SemiBold', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3020833333333333vw;
+    line-height: 1.5625vw;
+    color: #FFFFFF;
+}
+
+#serverinfotext {
+    position: absolute;
+    top: 30%;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.635vw;
+    line-height: 0.7291666666666666vw;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#serverextra {
+    position: absolute;
+    top: 50%;
+    font-family: 'Akrobat SemiBold', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3020833333333333vw;
+    line-height: 1.5625vw;
+    color: #FFFFFF;
+}
+
+#serverextratext {
+    position: absolute;
+    top: 60%;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.635vw;
+    line-height: 0.7291666666666666vw;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#play {
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+#play {
+    position: absolute;
+    width: 44.13347685683531vh;
+    height: 4.583333333333333vw;
+    background: rgba(0, 132, 255, 0.8);
+    box-shadow: 0vw 0vw 0.2604166666666667vw #65C7FF;
+    border-radius: 0.2604166666666667vw;
+    text-align: center;
+    top: 80%;
+    left: 60%;
+    cursor: pointer;
+}
+
+#play:after {
+    content: '▶';
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.8229166666666667vw;
+    line-height: 2.1875vw;
+    color: #000000;
+    position: absolute;
+    opacity: 0;
+    top: 30%;
+    left: 40%;
+    transition: 0.3s;
+}
+
+#playtext {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.8229166666666667vw;
+    line-height: 2.1875vw;
+    color: #000000;
+}
+
+#lester {
+    position: absolute;
+    max-width: 100%;
+    height: auto;
+    left: -20%;
+    top: 10%;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+#lester_mobile {
+    display: none;
+}
+
+#copyright {
+    position: fixed;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #525252;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+#copyright a {
+    color: #0084FF;
+    text-decoration: none;
+    font-size: 1.1vw;
+    margin: 0 10px;
+}
+
+#copyright a:hover {
+    color: #006BB5;
+}
+
+@media screen and (max-width: 768px) {
+    #logotext {
+        font-size: 6vw;
+        left: 5%;
+    }
+    #logo {
+        width: 25vw;
+    }
+    #home, #forum, #shop, #development, #dc {
+        font-size: 5vw;
+    }
+    #textbox {
+        width: 90vw;
+    }
+    #serverinfo, #serverextra {
+        font-size: 5vw;
+        top: 25%;
+    }
+    #serverinfotext, #serverextratext {
+        font-size: 4vw;
+    }
+    #play {
+        width: 80vw;
+        height: 10vw;
+    }
+    #playtext {
+        font-size: 6vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #logotext {
+        font-size: 10vw;
+        left: 5%;
+    }
+    #logo {
+        width: 35vw;
+    }
+    #home, #forum, #shop, #development, #dc {
+        font-size: 8vw;
+    }
+    #textbox {
+        width: 90vw;
+    }
+    #serverinfo, #serverextra {
+        font-size: 8vw;
+        top: 25%;
+    }
+    #serverinfotext, #serverextratext {
+        font-size: 7vw;
+    }
+    #play {
+        width: 90vw;
+        height: 12vw;
+    }
+    #playtext {
+        font-size: 8vw;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #logotext {
+        font-size: 5vw;
+    }
+    #logo {
+        width: 18vw;
+    }
+    #home, #forum, #shop, #development, #dc {
+        font-size: 4vw;
+    }
+    #textbox {
+        width: 80vw;
+    }
+    #serverinfo, #serverextra {
+        font-size: 4vw;
+    }
+    #serverinfotext, #serverextratext {
+        font-size: 3.5vw;
+    }
+    #play {
+        width: 60vw;
+    }
+    #playtext {
+        font-size: 4.5vw;
+    }
+}

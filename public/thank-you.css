@@ -1,0 +1,297 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Akrobat Light', sans-serif;
+    background-size: cover;
+    background-image: url(img/background.png);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#logotext {
+    position: absolute;
+    top: 5.4%;
+    font-family: 'Akrobat Bold', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5416666666666667vw;
+    line-height: 1.5625vw;
+    color: #0084FF;
+    left: 9%;
+}
+
+#logotext2 {
+    position: absolute;
+    top: 80%;
+    left: 0%;
+    font-size: 1.254166666666666vw;
+    color: #FFFFFF;
+}
+
+#logo {
+    position: absolute;
+    width: 4.198062432723359vh;
+    height: 2.95625vw;
+    top: 5%;
+    left: 5%;
+}
+
+#strich1 {
+    position: absolute;
+    width: 206.67384284176535vh;
+    height: 0vw;
+    border: 0.052083333333333336vw solid rgba(53, 53, 53, 0.6);
+    left: 0%;
+    top: 15%;
+}
+
+#home {
+    position: absolute;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #FFFFFF;
+    left: 25%;
+    top: 7%;
+    text-decoration: none;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#homestrich {
+    position: absolute;
+    width: 2.3681377825618943vh;
+    height: 0.10416666666666667vw;
+    background: #0084FF;
+    box-shadow: 0wv 0wv 0.15625vw #6DB9FF;
+    top: 10%;
+    left: 25.5%;
+}
+
+#forum {
+    position: absolute;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #FFFFFF;
+    left: 40%;
+    top: 7%;
+    text-decoration: none;
+}
+
+#shop {
+    position: absolute;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #FFFFFF;
+    left: 70%;
+    top: 7%;
+    text-decoration: none;
+}
+
+#development {
+    position: absolute;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #FFFFFF;
+    left: 55%;
+    top: 7%;
+    text-decoration: none;
+}
+
+#shop:hover, #home:hover, #forum:hover, #development:hover, #dc:hover {
+    color: #0084FF;
+}
+
+#dc {
+    position: absolute;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #FFFFFF;
+    left: 85%;
+    top: 7%;
+    text-decoration: none;
+}
+
+#copyright {
+    position: fixed;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #525252;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+#copyright a {
+    color: #0084FF;
+    text-decoration: none;
+    font-size: 1.1vw;
+    margin: 0 10px;
+}
+
+#copyright a:hover {
+    color: #006BB5;
+}
+
+.thank-you-container {
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-family: 'Akrobat Bold', sans-serif;
+    font-size: 2.5vw;
+    font-weight: 600;
+    color: #0084FF;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2vw;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+#button {
+    font-family: 'Akrobat Light', sans-serif;
+    font-size: 1.1vw;
+    text-decoration: none;
+    background-color: #0084FF;
+    color: #FFFFFF;
+    padding: 12px 30px;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#button:hover {
+    background-color: #006bb3;
+}
+
+#button:active {
+    background-color: #004f85;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    #logotext {
+        font-size: 4vw;
+        left: 5%;
+    }
+
+    #logo {
+        width: 20vw;
+    }
+
+    #home, #forum, #shop, #development, #dc {
+        font-size: 5vw;
+        top: 12%;
+    }
+
+    #strich1 {
+        width: 90%;
+    }
+
+    #homestrich, #forumstrich, #developmentstrich, #shopstrich {
+        width: 30vw;
+    }
+
+    #copyright {
+        font-size: 4vw;
+    }
+
+    .thank-you-container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 8vw;
+    }
+
+    p {
+        font-size: 4.5vw;
+    }
+
+    #button {
+        font-size: 5vw;
+        padding: 10px 25px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #logotext {
+        font-size: 6vw;
+        left: 5%;
+    }
+
+    #logo {
+        width: 30vw;
+    }
+
+    #home, #forum, #shop, #development, #dc {
+        font-size: 6vw;
+        top: 15%;
+    }
+
+    #strich1 {
+        width: 80%;
+    }
+
+    #homestrich, #forumstrich, #developmentstrich, #shopstrich {
+        width: 40vw;
+    }
+
+    #copyright {
+        font-size: 5vw;
+    }
+
+    .thank-you-container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 10vw;
+    }
+
+    p {
+        font-size: 5vw;
+    }
+
+    #button {
+        font-size: 6vw;
+        padding: 8px 20px;
+    }
+}

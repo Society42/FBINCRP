@@ -1,0 +1,259 @@
+html {
+    display: block;
+}
+
+body {
+    background-size: cover;
+    background-image: url(img/background.png);
+    overflow-x: hidden;
+    display: block;
+    margin: 8px;
+}
+
+body {
+    font-family: 'Akrobat', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+#logotext {
+position: absolute;
+top: 50%;
+font-family: 'Akrobat Bold', sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 1.5416666666666667vw;
+line-height: 1.5625vw;
+color: #0084FF;
+top: 5.4%;
+left: 9%;
+}
+
+#logotext2 {
+position: absolute;
+top: 80%;
+left: 0%;
+font-size: 1.254166666666666vw;
+color: #FFFFFF;
+}
+
+#logo {
+position: absolute;
+width: 4.198062432723359vh;
+height: 2.95625vw;
+top: 5%;
+left: 5%;
+}
+
+#strich1 {
+position: absolute;
+width: 206.67384284176535vh;
+height: 0vw;
+border: 0.052083333333333336vw solid rgba(53, 53, 53, 0.6);
+left: 0%;
+top: 15%;
+}
+
+#home {
+position: absolute;
+font-family: 'Akrobat Light', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 1.0416666666666667vw;
+line-height: 1.25vw;
+color: #FFFFFF;
+left: 25%;
+top: 7%;
+text-decoration: none;
+}
+
+a:-webkit-any-link {
+color: -webkit-link;
+cursor: pointer;
+text-decoration: underline;
+}
+
+#homestrich {
+position: absolute;
+width: 2.3681377825618943vh;
+height: 0.10416666666666667vw;
+background: #0084FF;
+box-shadow: 0wv 0wv 0.15625vw #6DB9FF;
+top: 10%;
+left: 40.5%;
+}
+
+#forum {
+position: absolute;
+font-family: 'Akrobat Light', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 1.0416666666666667vw;
+line-height: 1.25vw;
+color: #FFFFFF;
+left: 40%;
+top: 7%;
+text-decoration: none;
+}
+
+#shop {
+position: absolute;
+font-family: 'Akrobat Light', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 1.0416666666666667vw;
+line-height: 1.25vw;
+color: #FFFFFF;
+left: 70%;
+top: 7%;
+text-decoration: none;
+}
+
+#development {
+position: absolute;
+font-family: 'Akrobat Light', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 1.0416666666666667vw;
+line-height: 1.25vw;
+color: #FFFFFF;
+left: 55%;
+top: 7%;
+text-decoration: none;
+}
+
+#shop:hover, #development:hover, #home:hover, #forum:hover, #dc:hover {
+color: #0084FF;
+}
+
+#dc {
+position: absolute;
+font-family: 'Akrobat Light', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 1.0416666666666667vw;
+line-height: 1.25vw;
+color: #FFFFFF;
+left: 85%;
+top: 7%;
+text-decoration: none;
+}
+
+#privacy-policy {
+    padding: 20px;
+    margin: 20px;
+    margin-top: 5.5%;
+    border-radius: 5px;
+    color: #fff;
+}
+
+#privacy-policy h1 {
+    font-size: 2.5em;
+    color: #0084FF;
+}
+
+#privacy-policy h2 {
+    font-size: 1.8em;
+    color: #00aaff;
+}
+
+#privacy-policy p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+}
+
+.highlight {
+    color: #ff9900;
+    font-weight: bold;
+}
+
+#contact-info {
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+#contact-info a {
+    color: #0084FF;
+    text-decoration: none;
+}
+
+#contact-info a:hover {
+    text-decoration: underline;
+}
+
+#copyright {
+    position: fixed;
+    font-family: 'Akrobat Light', sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 1.0416666666666667vw;
+    line-height: 1.25vw;
+    color: #525252;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+#copyright a {
+    color: #0084FF;
+    text-decoration: none;
+    font-size: 1.1vw;
+    margin: 0 10px;
+}
+
+#copyright a:hover {
+    color: #006BB5;
+}
+
+@media screen and (max-width: 768px) {
+    #privacy-policy {
+        margin: 10px;
+        padding: 10px;
+    }
+    #privacy-policy h1 {
+        font-size: 4vw;
+    }
+    #privacy-policy h2 {
+        font-size: 3.5vw;
+    }
+    #privacy-policy p {
+        font-size: 3vw;
+    }
+    #contact-info {
+        font-size: 3vw;
+    }
+    #contact-info a {
+        font-size: 3vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #privacy-policy {
+        margin: 5px;
+        padding: 5px;
+    }
+    #privacy-policy h1 {
+        font-size: 6vw;
+    }
+    #privacy-policy h2 {
+        font-size: 5vw;
+    }
+    #privacy-policy p {
+        font-size: 4.5vw;
+    }
+    #contact-info {
+        font-size: 4.5vw;
+    }
+    #contact-info a {
+        font-size: 4.5vw;
+    }
+}

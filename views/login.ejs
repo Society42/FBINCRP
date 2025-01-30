@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRP - Login</title>
+  <link rel="icon" type="image/x-icon" href="img/logo.png">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="discord.css">
+  <link href="https://fonts.cdnfonts.com/css/akrobat" rel="stylesheet">
+</head>
+<body>
+  <div id="obenlinks">
+    <div><img id="logo" src="/img/logo.png" alt="Logo"></div>
+    <div id="logotext">Raleigh<span id="logotext2">Roleplay</span></div>
+</div>
+<div id="strich1"></div>
+
+<div id="nav">
+    <a href="/" id="home">HOME</a>
+    <div id="homestrich"></div>
+    <a href="/forum" id="forum">FORUM</a>
+    <a href="/development-board" id="development">DEVELOPMENT</a>
+    <a href="/coming-soon" id="shop">SHOP</a>
+    <a href="https://discord.gg/gUDr28uf6e" target="_blank" id="dc">DISCORD</a>
+</div>
+
+  <div class="container">
+    <h1>Login with Discord</h1>
+    <p id="description">Access the RRP forums by logging in with your Discord account. This process is quick, secure and reliable.</p>
+    <a href="/auth/discord" id="play">Login with Discord</a>
+  </div>
+
+  <div id="copyright">
+    <p>Copyright © 2025 by Raleigh Roleplay</p>
+    <a href="/privacy-policy">Privacy Policy</a> | 
+    <a href="/terms-of-service">Terms of Service</a>
+</div>
+  <script>
+    function isMobile() {
+        return /Mobi|Android/i.test(navigator.userAgent);
+    }
+
+    if (isMobile()) {
+        window.location.href = '/mobile-user';  
+    }
+    </script>
+</body>
+</html>

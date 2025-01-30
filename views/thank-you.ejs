@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/img/logo.png">
+  <link rel="stylesheet" href="/thank-you.css">
+  <link href="https://fonts.cdnfonts.com/css/akrobat" rel="stylesheet">
+  <title>RRP - Thank You</title>
+</head>
+<body>
+  <div id="obenlinks">
+    <div><img id="logo" src="/img/logo.png" alt="Logo"></div>
+    <div id="logotext">Raleigh<span id="logotext2">Roleplay</span></div>
+</div>
+<div id="strich1"></div>
+
+<div id="nav">
+    <a href="/" id="home">HOME</a>
+    <div id="homestrich"></div>
+    <a href="/forum" id="forum">FORUM</a>
+    <a href="/development-board" id="development">DEVELOPMENT</a>
+    <a href="/coming-soon" id="shop">SHOP</a>
+    <a href="https://discord.gg/gUDr28uf6e" target="_blank" id="dc">DISCORD</a>
+</div>
+
+<div class="thank-you-container">
+  <h1>Thank You for Your Application!</h1>
+  <p>Your application has been submitted successfully. We will review it and get back to you soon.</p>
+  <a href="/" id="button">Go to Home</a>
+  <a href="/forum" id="button">Go to Forums</a>
+</div>
+
+<div id="copyright">
+  <p>Copyright © by Raleigh Roleplay</p>
+  <div>
+      <a href="/privacy-policy" id="privacy-policy-btn">Privacy Policy</a> | 
+      <a href="/terms-of-service" id="tos-btn">Terms of Service</a>
+  </div>
+</div>
+
+<script>
+  function isMobile() {
+      return /Mobi|Android/i.test(navigator.userAgent);
+  }
+
+  if (isMobile()) {
+      window.location.href = '/mobile-user';  
+  }
+  </script>
+</body>
+</html>
